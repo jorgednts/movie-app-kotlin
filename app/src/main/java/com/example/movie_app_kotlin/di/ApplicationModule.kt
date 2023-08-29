@@ -12,8 +12,10 @@ import com.example.movie_app_kotlin.domain.use_case.GetMovieListUseCase
 import com.example.movie_app_kotlin.domain.use_case.GetMovieListUseCaseImpl
 import com.example.movie_app_kotlin.presentation.movie_details.MovieDetailsViewModel
 import com.example.movie_app_kotlin.presentation.movie_list.MovieListViewModel
+import dagger.Module
 import dagger.Provides
 
+@Module
 class ApplicationModule {
     @Provides
     fun getMoviesDataService(): MoviesDataService =
