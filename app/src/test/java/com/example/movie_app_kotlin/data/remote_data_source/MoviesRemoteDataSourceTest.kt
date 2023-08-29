@@ -61,7 +61,7 @@ class MoviesRemoteDataSourceTest {
         try {
             moviesRemoteDataSource.getMovieList()
             fail("Expected GenericErrorException")
-        } catch (e: GenericErrorException) {
+        } catch (_: GenericErrorException) {
         }
     }
 
@@ -84,7 +84,7 @@ class MoviesRemoteDataSourceTest {
         try {
             moviesRemoteDataSource.getMovieDetails(movieId)
             fail("Expected CustomNetworkException")
-        } catch (e: CustomNetworkException) {
+        } catch (_: CustomNetworkException) {
         }
     }
 
@@ -96,7 +96,7 @@ class MoviesRemoteDataSourceTest {
         try {
             moviesRemoteDataSource.getMovieDetails(movieId)
             fail("Expected GenericErrorException")
-        } catch (e: GenericErrorException) {
+        } catch (_: GenericErrorException) {
         }
     }
 }
