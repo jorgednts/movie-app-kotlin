@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName
 data class MovieResponse(
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("voteAverage")
+    @SerializedName("vote_average")
     val voteAverage: Double?,
     @SerializedName("title")
     val title: String?,
-    @SerializedName("posterUrl")
+    @SerializedName("poster_url")
     val posterUrl: String?,
     @SerializedName("genres")
     val genres: List<String>?,
-    @SerializedName("releaseDate")
+    @SerializedName("release_date")
     val releaseDate: String?
 )

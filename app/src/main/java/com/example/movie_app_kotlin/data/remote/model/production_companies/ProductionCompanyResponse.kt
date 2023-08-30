@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class ProductionCompanyResponse(
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("logoUrl")
+    @SerializedName("logo_url")
     val logoUrl: String?,
     @SerializedName("name")
     val name: String?,
-    @SerializedName("originCountry")
+    @SerializedName("origin_country")
     val originCountry: String?
 )
