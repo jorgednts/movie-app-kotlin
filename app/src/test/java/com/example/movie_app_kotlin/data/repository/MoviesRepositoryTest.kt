@@ -1,6 +1,7 @@
 package com.example.movie_app_kotlin.data.repository
 
 import com.example.movie_app_kotlin.UnitTestUtils
+import com.example.movie_app_kotlin.data.cache.MoviesCacheDataSource
 import com.example.movie_app_kotlin.data.remote.data_source.MoviesRemoteDataSource
 import com.example.movie_app_kotlin.domain.repository.MoviesRepository
 import io.mockk.MockKAnnotations
@@ -17,13 +18,15 @@ class MoviesRepositoryTest {
 
     @MockK
     private lateinit var moviesRemoteDataSource: MoviesRemoteDataSource
+    @MockK
+    private lateinit var moviesCacheDataSource: MoviesCacheDataSource
     private lateinit var moviesRepository: MoviesRepository
     private var movieId = 19404
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        moviesRepository = MoviesRepositoryImpl(moviesRemoteDataSource)
+        moviesRepository = MoviesRepositoryImpl(moviesRemoteDataSource, moviesCacheDataSource)
     }
 
     @Test
@@ -31,6 +34,10 @@ class MoviesRepositoryTest {
         coEvery {
             moviesRemoteDataSource.getMovieList()
         } returns UnitTestUtils.successfulMovieListModelMock
+        coEvery {
+            moviesCacheDataSource.getMovieList()
+        } returns UnitTestUtils.successfulMovieListModelMock
+
         val result = moviesRepository.getMovieList()
 
         coVerify(exactly = 1) { moviesRemoteDataSource.getMovieList() }
@@ -42,6 +49,11 @@ class MoviesRepositoryTest {
         coEvery {
             moviesRemoteDataSource.getMovieDetails(movieId)
         } returns UnitTestUtils.successfulMovieDetailsModelMock
+
+        coEvery {
+            moviesCacheDataSource.getMovieDetails(movieId)
+        } returns UnitTestUtils.successfulMovieDetailsModelMock
+
         val result = moviesRepository.getMovieDetails(movieId)
 
         coVerify(exactly = 1) { moviesRemoteDataSource.getMovieDetails(movieId) }
