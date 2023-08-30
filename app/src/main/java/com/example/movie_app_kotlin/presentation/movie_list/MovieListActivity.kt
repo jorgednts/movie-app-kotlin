@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movie_app_kotlin.R
 import com.example.movie_app_kotlin.databinding.ActivityMovieListBinding
 import com.example.movie_app_kotlin.di.ApplicationComponent
+import com.example.movie_app_kotlin.di.ApplicationModule
 import com.example.movie_app_kotlin.di.DaggerApplicationComponent
 import com.example.movie_app_kotlin.presentation.common.ErrorFragment
 import com.example.movie_app_kotlin.presentation.common.OnRetryButtonClickListener
@@ -17,7 +18,9 @@ import javax.inject.Inject
 class MovieListActivity : AppCompatActivity() {
 
     private val component: ApplicationComponent? by lazy {
-        DaggerApplicationComponent.builder().build()
+        DaggerApplicationComponent.builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
     }
 
     @Inject

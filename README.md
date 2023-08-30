@@ -20,6 +20,7 @@ Clean Architecture + MVVM
 - Glide
 - Dagger2
 - MockK
+- Room
 
 ##
 
