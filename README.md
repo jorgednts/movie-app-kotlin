@@ -1,4 +1,4 @@
-## App Android em Java
+## App Android em Kotlin
 
 Desafio de estágio em Desenvolvimento Mobile da empresa Tokenlab, desenvolvido em Android/Kotlin
 
