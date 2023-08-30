@@ -13,28 +13,28 @@ data class MovieDetailsResponse(
     val budget: Int?,
     @SerializedName("genres")
     val genres: List<String>?,
-    @SerializedName("originalLanguage")
+    @SerializedName("original_language")
     val originalLanguage: String?,
-    @SerializedName("originalTitle")
+    @SerializedName("original_title")
     val originalTitle: String?,
     @SerializedName("overview")
     val overview: String?,
-    @SerializedName("posterUrl")
+    @SerializedName("poster_url")
     val posterUrl: String?,
-    @SerializedName("productionCompanies")
+    @SerializedName("production_companies")
     val productionCompanies: List<ProductionCompanyResponse>?,
-    @SerializedName("releaseDate")
+    @SerializedName("release_date")
     val releaseDate: String?,
     @SerializedName("revenue")
     val revenue: Int?,
     @SerializedName("runtime")
     val runtime: Int?,
-    @SerializedName("spokenLanguages")
+    @SerializedName("spoken_languages")
     val spokenLanguages: List<SpokenLanguageResponse>?,
     @SerializedName("status")
     val status: String?,
     @SerializedName("title")
     val title: String?,
-    @SerializedName("voteAverage")
+    @SerializedName("vote_average")
     val voteAverage: Double?
 )

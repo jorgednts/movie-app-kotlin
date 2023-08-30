@@ -15,6 +15,7 @@ import com.example.movie_app_kotlin.presentation.movie_details.MovieDetailsActiv
 import javax.inject.Inject
 
 class MovieListActivity : AppCompatActivity() {
+
     private val component: ApplicationComponent? by lazy {
         DaggerApplicationComponent.builder().build()
     }
@@ -27,7 +28,7 @@ class MovieListActivity : AppCompatActivity() {
     private var onButtonClickListener = object : OnButtonClickListener {
         override fun onButtonClick(movieId: Int) {
             val intent = Intent(applicationContext, MovieDetailsActivity::class.java)
-//            intent.putExtra(MovieDetailsActivity.EXTRA_MOVIE_ID, movieId)
+            intent.putExtra(MovieDetailsActivity.EXTRA_MOVIE_ID, movieId)
             startActivity(intent)
         }
     }
